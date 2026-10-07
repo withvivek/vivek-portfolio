@@ -1,0 +1,16 @@
+/* ==========================================================================
+   APP CONTAINER STYLES
+   ========================================================================== */
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}

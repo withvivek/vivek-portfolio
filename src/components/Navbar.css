@@ -1,0 +1,224 @@
+/* ==========================================================================
+   NAVBAR COMPONENT STYLES
+   ========================================================================== */
+
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  z-index: 100;
+  transition: all var(--transition-normal);
+  background: rgba(10, 15, 29, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+}
+
+.navbar-scrolled {
+  background: rgba(10, 15, 29, 0.92);
+  border-bottom-color: var(--border-subtle);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Brand */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-blue);
+  transition: all var(--transition-fast);
+}
+
+.navbar-brand:hover .brand-icon {
+  background: var(--accent-blue);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.brand-name {
+  letter-spacing: -0.01em;
+}
+
+/* Nav Links - Desktop */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-link.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.active-dot {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 2px;
+  background: var(--accent-blue);
+  border-radius: 2px;
+}
+
+/* Actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-resume-btn {
+  font-size: 0.85rem;
+  padding: 7px 15px;
+}
+
+.mobile-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.mobile-toggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Mobile Dropdown */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  width: 100%;
+  background: rgba(10, 15, 29, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  transition: all var(--transition-normal);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.mobile-menu-open {
+  max-height: 480px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu-inner {
+  padding-top: 18px;
+  padding-bottom: 22px;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  background: rgba(59, 130, 246, 0.1);
+  color: #ffffff;
+}
+
+.mobile-active-pill {
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  background: rgba(59, 130, 246, 0.2);
+  color: var(--accent-blue);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+}
+
+.mobile-menu-footer {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.mobile-resume-btn {
+  width: 100%;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-resume-btn {
+    display: none;
+  }
+  .mobile-toggle {
+    display: flex;
+  }
+  .mobile-menu {
+    display: block;
+  }
+}

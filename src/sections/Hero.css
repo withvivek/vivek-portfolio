@@ -1,0 +1,207 @@
+/* ==========================================================================
+   HERO SECTION STYLES
+   ========================================================================== */
+
+.hero-section {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--nav-height) + 40px);
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Status Badge */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: var(--radius-full);
+  margin-bottom: 20px;
+}
+
+.status-pulse {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.status-text {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #a7f3d0;
+  font-family: var(--font-mono);
+}
+
+/* Title & Headline */
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-headline {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+.hero-intro {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  max-width: 600px;
+}
+
+/* Action Buttons */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Circular Profile Photo Frame */
+.hero-photo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-avatar-frame {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.4) 0%, rgba(6, 182, 212, 0.2) 100%);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.7), 0 0 28px rgba(59, 130, 246, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.hero-avatar-frame:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.8), 0 0 32px rgba(59, 130, 246, 0.28);
+}
+
+.hero-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #162035 0%, #0d1527 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.avatar-monogram {
+  font-family: var(--font-mono);
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #60a5fa;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.avatar-caption {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-photo-wrapper {
+    order: -1;
+    justify-content: flex-start;
+  }
+
+  .hero-avatar-frame {
+    width: 175px;
+    height: 175px;
+  }
+
+  .avatar-monogram {
+    font-size: 2.25rem;
+  }
+
+  .hero-title {
+    font-size: 2.85rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.35rem;
+  }
+
+  .hero-headline {
+    font-size: 1.1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .hero-photo-wrapper {
+    justify-content: center;
+  }
+}
